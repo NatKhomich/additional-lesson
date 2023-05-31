@@ -24,6 +24,7 @@ export const moneyFilter = (money: MoneyType[], filterKey: BanknotsType): MoneyT
     if (filterKey === 'All') {
         return money
     }
+
     return money.filter( el => el.banknotes === filterKey )
 }
 
