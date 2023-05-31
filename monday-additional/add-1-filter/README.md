@@ -1,3 +1,7 @@
+An additional class for reviewing the topic of props, filtering, and introduction to styled-components.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
