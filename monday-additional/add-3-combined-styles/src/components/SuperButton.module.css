@@ -1,0 +1,63 @@
+.button {
+    overflow: hidden;
+    padding: 5px 24px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.disabled { /* задизейбленная */
+    color: #002e5c;
+    background: #004d99;
+    opacity: 0.5;
+}
+
+.button:disabled {
+    cursor: default;
+}
+
+.secondary { /* синяя */
+    color: #0066CC;
+    background: transparent;
+    border: 1px solid #0066CC;
+    border-radius: 3px;
+}
+
+.default {  /* по дефолту */
+    background: #06c;
+}
+
+.red { /* красная */
+    background: #cc1439;
+}
+
+.default:hover { /* при наведении */
+    background: #0080ff;
+}
+
+.red:hover { /* при наведении */
+    background: #ff1a47;
+}
+
+.secondary:hover { /* при наведении */
+    background: #E5F0FA;
+}
+
+
+.default:active { /* при нажатии */
+    background: #0059b3;
+}
+
+.secondary:active { /* при нажатии */
+    background: #C9E5FF;
+}
+
+.red:active { /* при нажатии */
+    background: #b31232;
+}
+
