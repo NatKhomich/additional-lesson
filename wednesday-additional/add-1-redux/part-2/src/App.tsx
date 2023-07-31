@@ -6,20 +6,19 @@ import {v1} from 'uuid';
 import {CustomButton, UsersCountValue} from 'components';
 import {UsersList} from 'components/UsersList';
 import {generateRandomName} from 'utils';
-import {SetTimeoutType} from 'types';
 
 const DELAY = 500;
 
 export const App = () => {
-  const dispatch = useDispatch();
 
   const users = useSelector(selectUsers);
   const usersCount = useSelector(selectUsersCount);
+  const dispatch = useDispatch();
 
   const [isAddNewUser, setIsAddNewUser] = useState<boolean>(false);
 
   useEffect(() => {
-    let timeoutId: SetTimeoutType = setTimeout((): void => {
+    let timeoutId = setTimeout((): void => {
       setIsAddNewUser(false);
     }, DELAY);
 
@@ -33,6 +32,7 @@ export const App = () => {
   }, [dispatch, users.length, isAddNewUser]);
 
   const handleClick = useCallback((): void => {
+    debugger
     dispatch(createUser({id: v1(), name: generateRandomName()}));
 
     setIsAddNewUser(true);

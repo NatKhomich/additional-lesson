@@ -1,4 +1,3 @@
-import { RootStateOrAny } from "store";
+import {RootStoreType} from 'store';
 
-
-export const selectUsersCount = (state: RootStateOrAny): number => state.usersCount.count;
+export const selectUsersCount = (state: RootStoreType): number => state.userCount.count;
