@@ -19,7 +19,7 @@ const initialState: TasksStateType = {}
 
 export const tasksReducer = (state: TasksStateType = initialState, action: ActionsType): TasksStateType => {
     switch (action.type) {
-        case 'ADD-TODOLIST': {
+        case 'АDD-TODOLIST': {
             return {
                 ...state,
                 [action.todolistId]: []

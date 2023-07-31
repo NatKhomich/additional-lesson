@@ -29,10 +29,10 @@ function App() {
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
     const dispatch = useDispatch();
-    debugger
 
     function addTodolist(title: string) {
-        addTodolistAC(title)
+        //debugger
+        dispatch(addTodolistAC(title))
     }
 
     return (
