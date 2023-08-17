@@ -1,10 +1,10 @@
-import {FC, memo, useState} from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 
 const FIRST_BUTTON_BACKGROUND = {background: 'tomato'};
 const CONTAINER_STYLES = {display: 'flex', flexDirection: 'column', gap: 10};
 const BUTTON_STYLES = {border: 'none', outline: 'none', color: 'white', borderRadius: 5};
 
-//type PropsType = { isChecked: boolean, onSetIsChecked: () => void };
+type PropsType = { isChecked: boolean, onSetIsChecked: () => void };
 
 // Task
 // If click to Button component Checkbox not re-render +
@@ -12,19 +12,22 @@ const BUTTON_STYLES = {border: 'none', outline: 'none', color: 'white', borderRa
 
 export const Task_2 = () => {
     const [firstCount, setFirstCount] = useState(0);
+    const [isChecked, setIsChecked] = useState(false);
 
-    const handlePlusCountValueClick = () => setFirstCount(prevFirstCount => prevFirstCount + 1);
+    const handleSetIsChecked = useCallback(() => setIsChecked(!isChecked),[isChecked])
+
+    const handlePlusCountValueClick = useCallback(() => setFirstCount(prevFirstCount => prevFirstCount + 1), [firstCount])
 
     return (
         <div style={{...CONTAINER_STYLES} as any}>
             <div>{`Count equal: ${firstCount}`}</div>
             <Button onPlusCountValueClick={handlePlusCountValueClick}/>
-            <Checkbox/>
+            <Checkbox isChecked={isChecked} onSetIsChecked={handleSetIsChecked}/>
         </div>
     );
 };
 
-export const Button: FC<{ onPlusCountValueClick: () => void }> = ({onPlusCountValueClick}) => {
+export const Button: FC<{ onPlusCountValueClick: () => void }> = memo(({onPlusCountValueClick}) => {
     console.log('rerender button')
     return (
         <div>
@@ -36,16 +39,12 @@ export const Button: FC<{ onPlusCountValueClick: () => void }> = ({onPlusCountVa
             </button>
         </div>
     );
-};
+});
 
-export const Checkbox = memo(() => {
+export const Checkbox: FC<PropsType> = memo((props) => {
     console.log('rerender checkbox')
 
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleSetIsChecked = () => setIsChecked(!isChecked);
-
     return (
-        <input type="checkbox" checked={isChecked} onChange={handleSetIsChecked}/>
+        <input type="checkbox" checked={props.isChecked} onChange={props.onSetIsChecked}/>
     );
 });
