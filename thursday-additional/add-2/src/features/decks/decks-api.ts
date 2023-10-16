@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+//@ts-ignore
 export const instance = axios.create({
   baseURL: 'https://api.flashcards.andrii.es/v1/',
   headers: {

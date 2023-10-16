@@ -42,21 +42,7 @@ type DecksActions =
   | ReturnType<typeof deleteDeckAC>
   | ReturnType<typeof updateDeckAC>
 
-export const setDecksAC = (decks: Deck[]) => ({
-  type: 'DECKS/SET-DECKS' as const,
-  decks,
-})
-export const addDeckAC = (deck: Deck) => ({
-  type: 'DECKS/ADD-DECK' as const,
-  deck,
-})
-
-export const deleteDeckAC = (id: string) => ({
-  type: 'DECKS/DELETE-DECK' as const,
-  id,
-})
-
-export const updateDeckAC = (updatedDeck: Deck) => ({
-  type: 'DECKS/UPDATE-DECK' as const,
-  updatedDeck,
-})
+export const setDecksAC = (decks: Deck[]) => ({ type: 'DECKS/SET-DECKS' as const, decks})
+export const addDeckAC = (deck: Deck) => ({ type: 'DECKS/ADD-DECK' as const, deck})
+export const deleteDeckAC = (id: string) => ({ type: 'DECKS/DELETE-DECK' as const, id})
+export const updateDeckAC = (updatedDeck: Deck) => ({ type: 'DECKS/UPDATE-DECK' as const, updatedDeck})
